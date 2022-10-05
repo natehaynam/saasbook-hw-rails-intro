@@ -14,11 +14,11 @@ class MoviesController < ApplicationController
         @ratings_to_show = Hash[@all_ratings.map {|rating| [rating, 1]}]
       end
 
-      if params[:sort] != session[:sort] or params[:ratings] != session[:ratings]
-        session[:sort] = sort
+      if params[:ratings] != session[:ratings]
+      
         session[:ratings] = @ratings_to_show
       end
-      @movies = Movie.where(rating: @ratings_to_show.keys).order(sort)
+      @movies = Movie.where(rating: @ratings_to_show.keys)
     end
   
     def new
