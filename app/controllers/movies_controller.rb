@@ -17,10 +17,10 @@ class MoviesController < ApplicationController
       end
 
       if params[:ratings] != session[:ratings]
-      
+        session[:sort] = sort
         session[:ratings] = @ratings_to_show
       end
-      @movies = Movie.where(rating: @ratings_to_show.keys).order('release_date')
+      @movies = Movie.where(rating: @ratings_to_show.keys).order(sort)
     end
   
     def new
