@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
       
         session[:ratings] = @ratings_to_show
       end
-      @movies = Movie.where(rating: @ratings_to_show.keys)
+      @movies = Movie.where(rating: @ratings_to_show.keys).order('release_date')
     end
   
     def new
