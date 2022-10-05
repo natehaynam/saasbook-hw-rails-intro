@@ -34,7 +34,7 @@
           <%= movie.release_date %>
         </td>
         <td>
-          <%= link_to "More about #{movie.title}", movie_path(movie) %>
+          <%= link_to "More about #{movie.title}", movie_path(movie), :class => 'p-3 mb-2 bg-primary text-white'%>
         </td>
       </tr>
     <% end %>
