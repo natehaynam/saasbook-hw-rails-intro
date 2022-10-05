@@ -15,9 +15,10 @@ class MoviesController < ApplicationController
       end
 
       if params[:ratings] != session[:ratings]
-        session[:ratings] = @selected_ratings
+      
+        session[:ratings] = @ratings_to_show
       end
-      @movies = Movie.where(rating: @selected_ratings.keys)
+      @movies = Movie.where(rating: @ratings_to_show.keys)
     end
   
     def new
